@@ -3,14 +3,14 @@ package com.example.mycontactmanager.model;
 public class Contact {
     private int id;
     private String name;
-    private String phneNumber;
+    private String phoneNumber;
 
     public Contact(){}
 
-    public Contact(int id, String name, String phneNumber){
+    public Contact(int id, String name, String phoneNumber){
         this.id = id;
         this.name = name;
-        this.phneNumber = phneNumber;
+        this.phoneNumber = phoneNumber;
     }
 
     public int getId() {
@@ -29,11 +29,11 @@ public class Contact {
         this.name = name;
     }
 
-    public String getPhneNumber() {
-        return phneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhneNumber(String phneNumber) {
-        this.phneNumber = phneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
