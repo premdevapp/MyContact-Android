@@ -24,61 +24,46 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*listView = findViewById(R.id.listview);
-        contactArrayList = new ArrayList<>();*/
+
         DatabaseHandler db = new DatabaseHandler(MainActivity.this);
 
-//       Contact a = new Contact("Greg", "91645");
-//        db.addContact(a);
-
-//        db.addContact(new Contact("James","213986"));
-//        db.addContact(new Contact("Greg","098765"));
-//        db.addContact(new Contact("Helena","40678765"));
-//        db.addContact(new Contact("Carimo","768345"));
-
-//        db.addContact(new Contact("Silo","3445"));
-//        db.addContact(new Contact("Santos","6665"));
-//        db.addContact(new Contact("Litos","5344"));
-//        db.addContact(new Contact("Karate","96534"));
-//        db.addContact(new Contact("Guerra","158285"));
-//        db.addContact(new Contact("Gema","78130"));
-
+        Contact first = new Contact();
+        /*
         Contact first = new Contact();
         first.setName("Premnath");
         first.setPhoneNumber("6382709971");
-       //db.addContact(first);
-       Contact second = new Contact();
+        db.addContact(first);
+        */
+
+        /*
+        Contact second = new Contact();
         second.setName("Priya");
         second.setPhoneNumber("9791793785");
-       db.addContact(second);
+        db.addContact(second);
+
+
+// get all contacts
 
        List<Contact> contactList = db.getAllContacts();
 
         for (Contact contact : contactList) {
-            Log.d("MainActivity5", "onCreate: " + contact.getName());
+            Log.d("MainActivity5", "onCreate: " + contact.getId());
             //contactArrayList.add(contact.getName());
         }
+// get one contact
 
-/*
-        //create array adapter
-        arrayAdapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                contactArrayList
-        );
+        Contact contact_one = db.getContact(1);
+        Log.d("MainActivity", "onCreate: " + contact_one.getId() + " " + contact_one.getName() + " ,"+ contact_one.getPhoneNumber());
 
-        //add to our listview
-        listView.setAdapter(arrayAdapter);
-
-        //Attach eventlistener to listview
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("List", "onItemClick: " + contactArrayList.get(position));
-
-            }
-        });*/
-
+  //update
+        contact_one.setName("Priya");
+        contact_one.setPhoneNumber("9791793785");
+        int updatedRow = db.updateContact(contact_one);
+        Log.d("MainActivity", "onCreate: " + updatedRow + " " + contact_one.getId() + " " + contact_one.getName() + " ,"+ contact_one.getPhoneNumber());
+        */
+   //delete
+       // db.deleteContact(2);
+        Log.d("main", "onCreate: "+ db.getCount());
     }
 
 }

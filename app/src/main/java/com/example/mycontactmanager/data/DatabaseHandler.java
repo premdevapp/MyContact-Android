@@ -123,7 +123,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(Util.KEY_PHONE_NUMBER, contact.getPhoneNumber());
 
         //update the row
-        //update(tablename, values, where id = 43)
+        //update(tablename, values, where id = 2)
         return db.update(Util.TABLE_NAME, values, Util.KEY_ID + "=?",
                 new String[]{String.valueOf(contact.getId())});
     }
@@ -134,7 +134,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         db.delete(Util.TABLE_NAME, Util.KEY_ID + "=?",
                 new String[]{String.valueOf(contact.getId())});
+        Log.d("Delete", "deleteContact: "+ "deleted");
+        db.close();
+    }
+    public void deleteContact(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
 
+        db.delete(Util.TABLE_NAME, Util.KEY_ID + "=?",
+                new String[]{String.valueOf(id)});
+        Log.d("Delete", "deleteContact: "+ "deleted");
         db.close();
     }
 
